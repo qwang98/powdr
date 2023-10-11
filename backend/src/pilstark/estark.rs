@@ -113,6 +113,7 @@ impl<F: FieldElement> BackendImpl<F> for EStark {
             &setup.program,
             &pil,
             &self.params,
+            &String::from(""),
         )
         .unwrap();
 
