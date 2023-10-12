@@ -59,6 +59,7 @@ fn gen_halo2_proof(_file_name: &str, _inputs: Vec<Bn254Field>) {}
 
 #[test]
 fn test_fibonacci() {
+    std::env::set_var("PILCOM", "../../../pilco");
     let f = "fibonacci.pil";
     verify_pil(f, None);
     gen_halo2_proof(f, Default::default());

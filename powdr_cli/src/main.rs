@@ -546,13 +546,16 @@ mod test {
         let output_dir_str = output_dir.path().to_string_lossy().to_string();
 
         let file = format!(
-            "{}/../test_data/asm/simple_sum.asm",
+            "{}/../test_data/pil/fibonacci.pil",
             env!("CARGO_MANIFEST_DIR")
         );
         let pil_command = Commands::Pil {
             file,
             field: FieldArgument::Bn254,
-            output_directory: output_dir_str.clone(),
+            output_directory: { 
+                println!("{}", output_dir_str.clone());
+                output_dir_str.clone()
+            },
             inputs: "3,2,1,2".into(),
             force: false,
             prove_with: Some(BackendType::PilStarkCli),
